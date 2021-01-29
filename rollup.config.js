@@ -3,13 +3,13 @@ import typescript from 'rollup-plugin-typescript2';
 import pkg from './package.json';
 
 const plugins = [
-  typescript({
-    typescript: require('typescript'),
-  }),
   copy({
     targets: [
       { src: 'src/assets/scss', dest: 'dist/assets' }
     ]
+  }),
+  typescript({
+    useTsconfigDeclarationDir: true,
   })
 ];
 
@@ -20,7 +20,7 @@ export default [
     output: {
       file: pkg.main,
       format: 'cjs',
-      sourcemap: true,
+      sourcemap: true
     },
     plugins,
   },

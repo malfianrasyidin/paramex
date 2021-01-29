@@ -40,6 +40,7 @@
     "eject": "react-scripts eject",
     "prepare": "yarn build",
     "test:cov": "yarn test --coverage",
+    "tsc": "tsc",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\""
   },
   "eslintConfig": {

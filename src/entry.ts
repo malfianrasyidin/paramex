@@ -1,1 +1,1 @@
-export { default as Button } from 'components/button';
+export { ButtonType, ButtonSize, default as Button } from './components/button';
