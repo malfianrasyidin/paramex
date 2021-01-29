@@ -5,6 +5,7 @@
   "files": [
     "dist"
   ],
+  "author": "malfianrasyidin",
   "main": "dist/entry.js",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
@@ -21,15 +22,26 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
-    "typescript": "^4.0.3",
-    "web-vitals": "^0.2.4"
+    "typescript": "^4.0.3"
+  },
+  "devDependencies": {
+    "husky": "^4.3.8",
+    "lint-staged": "^10.5.3",
+    "prettier": "^2.2.1"
   },
   "scripts": {
     "start": "react-scripts start",
+    "clean": "rm -rf dist",
+    "prebuild": "yarn clean",
     "build": "tsc --build \"./tsconfig.build.json\"",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prepare": "yarn build"
+    "prepare": "yarn build",
+    "test:cov": "yarn test --coverage",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
+    "copy:scss": "cp -R src/assets dist",
+    "build:css": "node-sass src/assets/scss/index.scss -o dist/assets/css",
+    "postbuild": "yarn copy:scss && yarn build:css"
   },
   "eslintConfig": {
     "extends": [
@@ -47,6 +59,30 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "engines": {
+    "node": "^12"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "CI=true yarn test:cov"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write"
+    ]
+  },
+  "prettier": {
+    "quoteProps": "consistent"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/index.tsx",
+      "!src/**/*.d.ts"
     ]
   }
 }
