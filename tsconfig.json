@@ -19,7 +19,6 @@
     "isolatedModules": true,
     "noEmit": true,
     "declaration": true,
-    "declarationDir": "dist/types",
     "jsx": "react-jsx",
     "baseUrl": "src"
   },

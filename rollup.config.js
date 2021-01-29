@@ -8,9 +8,7 @@ const plugins = [
       { src: 'src/assets/scss', dest: 'dist/assets' }
     ]
   }),
-  typescript({
-    useTsconfigDeclarationDir: true,
-  })
+  typescript()
 ];
 
 // eslint-disable-next-line import/no-anonymous-default-export
