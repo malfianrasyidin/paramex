@@ -28,7 +28,8 @@
     "start": "react-scripts start",
     "build": "tsc --build \"./tsconfig.build.json\"",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prepare": "yarn build"
   },
   "eslintConfig": {
     "extends": [
