@@ -30,7 +30,8 @@
     "prebuild": "yarn clean",
     "build": "tsc --build \"./tsconfig.build.json\"",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postinstall": "postinstall-build dist"
   },
   "eslintConfig": {
     "extends": [
