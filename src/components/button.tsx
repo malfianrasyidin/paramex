@@ -18,19 +18,46 @@ export enum ButtonSize {
   Large = 'lg',
 }
 
-interface ButtonProps {
+export interface ButtonProps {
+  /**
+   * Button content
+   */
   label?: string;
+  /**
+   * Button icon
+   */
   icon?: JSX.Element;
+  /**
+   * Button type
+   */
   type?: ButtonType;
+  /**
+   * Button size
+   */
   size?: ButtonSize;
+  /**
+   * Is fullwidth?
+   */
   block?: boolean;
+  /**
+   * Is outline?
+   */
   outline?: boolean;
+  /**
+   * Is disabled?
+   */
   disabled?: boolean;
+  /**
+   * Custom className
+   */
   className?: string;
+  /**
+   * onClick
+   */
   onClick?: () => void;
 }
 
-const Button = ({
+export const Button: React.FC<ButtonProps> = ({
   label,
   icon,
   type = ButtonType.Primary,
@@ -38,8 +65,8 @@ const Button = ({
   block,
   outline,
   disabled,
-  className = '',
-  onClick = () => {},
+  className,
+  onClick,
 }: ButtonProps) => (
   <button
     type="button"
@@ -58,5 +85,3 @@ const Button = ({
     {icon && <span className="ml-2">{icon}</span>}
   </button>
 );
-
-export default Button;
