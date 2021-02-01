@@ -35,7 +35,7 @@
   "scripts": {
     "start": "react-scripts start",
     "prebuild": "rm -rf dist",
-    "build": "npx rollup -c",
+    "build": "tsc --build tsconfig.build.json",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prepare": "yarn build",

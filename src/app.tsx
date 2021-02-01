@@ -1,4 +1,4 @@
-import { Button } from 'components';
+import Button from 'components/button';
 
 const App = () => (
   <div className="d-flex justify-content-center mt-4">
