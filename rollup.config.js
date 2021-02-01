@@ -8,7 +8,9 @@ const plugins = [
       { src: 'src/assets/scss', dest: 'dist/assets' }
     ]
   }),
-  typescript()
+  typescript({
+    tsconfig: 'tsconfig.build.json'
+  })
 ];
 
 // eslint-disable-next-line import/no-anonymous-default-export
