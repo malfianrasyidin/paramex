@@ -57,7 +57,7 @@ export interface ButtonProps {
   onClick?: () => void;
 }
 
-export const Button: React.FC<ButtonProps> = ({
+export const Button = ({
   label,
   icon,
   type = ButtonType.Primary,
