@@ -1,7 +1,19 @@
-@import 'variables.scss';
-@import 'themes.scss';
-@import 'bootstrap.scss';
-@import 'global.scss';
+@import 'variables';
+@import 'main';
 
-@import 'components/button.scss';
-@import 'components/icon.scss';
+/**
+* Can we re-import scss files inside mixins? So, when the theme
+* selector is active then all main modules reimported with
+* the new values. Please refer to this Github issue:default
+* https://github.com/sass/sass/issues/626
+*/
+
+.bbento {
+  @import 'themes/bbento';
+  @import 'main';
+}
+
+.uob-msig {
+  @import 'themes/uob-msig';
+  @import 'main';
+}
