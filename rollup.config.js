@@ -22,5 +22,6 @@ export default [
       format: 'cjs',
     },
     plugins,
+    external: ['react', 'classnames', 'react/jsx-runtime']
   },
 ];
