@@ -41,7 +41,7 @@ export const Button = ({
     type="button"
     disabled={disabled}
     className={classNames(
-      'button btn',
+      'button btn example',
       type && (outline ? `btn-outline-${type}` : `btn-${type}`),
       block && 'btn-block',
       size && `btn-${size}`,
