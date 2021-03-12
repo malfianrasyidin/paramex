@@ -66,6 +66,7 @@
     "test:cov": "yarn test --coverage",
     "eject": "react-scripts eject",
     "prepare": "yarn build",
+    "ci": "yarn install --frozen-lockfile",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
@@ -105,7 +106,7 @@
     ]
   },
   "prettier": {
-    "quoteProps": "consistent"
+    "singleQuote": true
   },
   "jest": {
     "collectCoverageFrom": [
