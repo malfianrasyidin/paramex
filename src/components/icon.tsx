@@ -1,49 +1,35 @@
 import classNames from 'classnames';
-import { IconName } from '@fortawesome/fontawesome-common-types';
+import { IconName, IconPrefix } from '@fortawesome/fontawesome-common-types';
 
-export enum IconSize {
-  ExtraSmall = 'fa-xs',
-  Small = 'fa-sm',
-  Medium = 'fa-md',
-  Large = 'fa-lg',
-  TwoTimes = 'fa-2x',
-  ThreeTimes = 'fa-3x',
-  FiveTimes = 'fa-5x',
-  SevenTimes = 'fa-7x',
-  TenTimes = 'fa-10x',
-}
-
-export enum IconStyle {
-  Solid = 'fas',
-  Regular = 'far',
-  Light = 'fal',
-  DuoTone = 'fad',
-  Brands = 'fab',
-}
+type IconSize = 'xs' | 'sm' | 'md' | 'lg' | '2x' | '3x' | '5x' | '7x' | '10x';
 
 export interface IconProps {
   name: IconName;
-  size?: IconSize;
-  style?: IconStyle;
+  size: IconSize;
+  prefix: IconPrefix;
+  testId?: string;
   className?: string;
   onClick?: () => void;
-  [x: string]: any;
 }
 
 export const Icon = ({
   name,
-  size = IconSize.Medium,
-  style = IconStyle.Solid,
+  size,
+  prefix,
+  testId,
   className,
   onClick,
-  ...rest
-}: IconProps) => {
-  const args = Object.keys(rest).map((arg) => `fa-${arg}`);
-
-  return (
-    <i
-      className={classNames(style, size, `fa-${name}`, args, className)}
-      onClick={onClick}
-    />
-  );
-};
+}: IconProps) => (
+  <i
+    onClick={onClick}
+    data-testid={testId}
+    className={classNames(
+      'icon',
+      prefix,
+      `fa-${size}`,
+      `fa-${name}`,
+      onClick && 'icon-clickable',
+      className
+    )}
+  />
+);

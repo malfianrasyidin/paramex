@@ -1,71 +1,40 @@
+import { ReactNode } from 'react';
 import classNames from 'classnames';
 
-export enum ButtonType {
-  Primary = 'primary',
-  Secondary = 'secondary',
-  Success = 'success',
-  Danger = 'danger',
-  Warning = 'warning',
-  Info = 'info',
-  Light = 'light',
-  Dark = 'dark',
-  Link = 'link',
-}
+type ButtonSize = 'sm' | 'md' | 'lg';
 
-export enum ButtonSize {
-  Small = 'sm',
-  Medium = 'md',
-  Large = 'lg',
-}
+export type ButtonType =
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'danger'
+  | 'warning'
+  | 'info'
+  | 'light'
+  | 'dark'
+  | 'link';
 
 export interface ButtonProps {
-  /**
-   * Button content
-   */
-  label?: string;
-  /**
-   * Button icon
-   */
-  icon?: JSX.Element;
-  /**
-   * Button type
-   */
-  type?: ButtonType;
-  /**
-   * Button size
-   */
-  size?: ButtonSize;
-  /**
-   * Is fullwidth?
-   */
+  type: ButtonType;
+  size: ButtonSize;
   block?: boolean;
-  /**
-   * Is outline?
-   */
+  testId?: string;
   outline?: boolean;
-  /**
-   * Is disabled?
-   */
   disabled?: boolean;
-  /**
-   * Custom className
-   */
   className?: string;
-  /**
-   * onClick
-   */
+  children?: ReactNode;
   onClick?: () => void;
 }
 
 export const Button = ({
-  label,
-  icon,
-  type = ButtonType.Primary,
+  type,
   size,
   block,
+  testId,
   outline,
   disabled,
   className,
+  children,
   onClick,
 }: ButtonProps) => (
   <button
@@ -73,15 +42,14 @@ export const Button = ({
     disabled={disabled}
     className={classNames(
       'button btn',
-      { [`btn-outline-${type}`]: outline },
-      { [`btn-${type}`]: !outline },
-      { [`btn-${size}`]: size },
-      { 'btn-block': block },
+      type && (outline ? `btn-outline-${type}` : `btn-${type}`),
+      block && 'btn-block',
+      size && `btn-${size}`,
       className
     )}
     onClick={onClick}
+    data-testid={testId}
   >
-    {label && label}
-    {icon && <span className="ml-2">{icon}</span>}
+    {children}
   </button>
 );

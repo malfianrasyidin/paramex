@@ -13,8 +13,7 @@ const plugins = [
   })
 ];
 
-// eslint-disable-next-line import/no-anonymous-default-export
-export default [
+const rollup = [
   {
     input: 'src/entry.ts',
     output: {
@@ -22,6 +21,12 @@ export default [
       format: 'cjs',
     },
     plugins,
-    external: ['react', 'classnames', 'react/jsx-runtime']
+    external: [
+      'react',
+      'classnames',
+      'react/jsx-runtime',
+    ]
   },
 ];
+
+export default rollup;
