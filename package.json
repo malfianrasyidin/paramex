@@ -7,6 +7,7 @@
   "license": "MIT",
   "author": "malfianrasyidin",
   "main": "dist/entry.js",
+  "sass": "dist/assets/scss/index.scss",
   "repository": {
     "type": "git",
     "url": "https://github.com/malfianrasyidin/paramex"
@@ -18,8 +19,7 @@
     "@fortawesome/fontawesome-common-types": "^0.2.34",
     "@types/classnames": "^2.2.11",
     "bootstrap": "^4.6.0",
-    "classnames": "^2.2.6",
-    "node-sass": "^4.13.1"
+    "classnames": "^2.2.6"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^6.1.21",
@@ -49,7 +49,6 @@
     "rollup": "^2.38.1",
     "rollup-plugin-copy": "^3.3.0",
     "rollup-plugin-typescript2": "^0.29.0",
-    "semantic-release": "^17.4.2",
     "storybook-addon-themes": "^6.0.1",
     "typescript": "^4.0.3"
   },
@@ -70,9 +69,7 @@
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "deploy-storybook": "storybook-to-ghpages",
-    "release": "semantic-release pre && yarn publish && semantic-release post",
-    "semantic-release": "semantic-release"
+    "deploy-storybook": "storybook-to-ghpages"
   },
   "eslintConfig": {
     "extends": [
