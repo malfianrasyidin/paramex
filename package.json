@@ -61,7 +61,6 @@
     "start": "react-scripts start",
     "prebuild": "rm -rf dist",
     "build": "npx rollup -c",
-    "prepublish": "env",
     "test": "react-scripts test",
     "test:cov": "yarn test --coverage",
     "eject": "react-scripts eject",
