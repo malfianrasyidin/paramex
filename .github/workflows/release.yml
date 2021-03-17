@@ -20,15 +20,11 @@ jobs:
           node-version: 12
       - name: Install dependencies
         run: yarn ci
-      - name: Build package
-        run: yarn build
-      - name: Release
+      - name: Build and Release
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release
-      - name: version
-        run: echo ${{ env.npm_package_version }}
       - name: Deploy storybook
         env:
           GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}

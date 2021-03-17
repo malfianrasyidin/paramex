@@ -65,6 +65,7 @@
     "test:cov": "yarn test --coverage",
     "eject": "react-scripts eject",
     "prepare": "yarn build",
+    "prepublish": "echo version: $npm_package_version",
     "ci": "yarn install --frozen-lockfile",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "storybook": "start-storybook -p 6006 -s public",
