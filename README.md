@@ -21,4 +21,3 @@ This project is initially bootstrapped from `create-react-app`
 >`yarn storybook`: run local documentation page
 
 >`yarn deploy-storybook`: deploy storybook pages to github page
-
